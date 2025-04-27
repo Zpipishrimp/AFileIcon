@@ -3300,21 +3300,25 @@
 		"color": "purple",
 		"syntaxes": [
 			{
-				"base": "source.json",
 				"extensions": [
-					"tfstate"
+					"hcl"
 				],
-				"name": "JSON (Terraform)",
-				"scope": "source.json.terraform"
+				"name": "Plain Text (HCL)",
+				"scope": "source.hcl"
 			},
 			{
 				"extensions": [
-					"tf",
-					"tfvars",
-					"hcl"
+					"tf"
 				],
 				"name": "Plain Text (Terraform)",
 				"scope": "source.terraform"
+			},
+			{
+				"extensions": [
+					"tfvars"
+				],
+				"name": "Plain Text (Terraform Vars)",
+				"scope": "source.terraform-vars"
 			}
 		]
 	},
