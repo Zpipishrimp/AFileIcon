@@ -435,10 +435,6 @@
 			{
 				"name": "C",
 				"scope": "source.c"
-			},
-			{
-				"name": "Objective-C",
-				"scope": "source.objc"
 			}
 		]
 	},
@@ -457,10 +453,6 @@
 			{
 				"name": "C++",
 				"scope": "source.c++"
-			},
-			{
-				"name": "Objective C++",
-				"scope": "source.objc++"
 			}
 		]
 	},
@@ -671,10 +663,6 @@
 			{
 				"name": "C++",
 				"scope": "source.c++"
-			},
-			{
-				"name": "Objective C++",
-				"scope": "source.objc++"
 			}
 		]
 	},
@@ -2193,6 +2181,24 @@
 		],
 		"color": "sky"
 	},
+	"file_type_objc": {
+		"color": "purple",
+		"syntaxes": [
+			{
+				"name": "Objective-C",
+				"scope": "source.objc"
+			}
+		]
+	},
+	"file_type_objc++": {
+		"color": "sky",
+		"syntaxes": [
+			{
+				"name": "Objective C++",
+				"scope": "source.objc++"
+			}
+		]
+	},
 	"file_type_ocaml": {
 		"color": "yellow",
 		"syntaxes": [
@@ -3300,21 +3306,25 @@
 		"color": "purple",
 		"syntaxes": [
 			{
-				"base": "source.json",
 				"extensions": [
-					"tfstate"
+					"hcl"
 				],
-				"name": "JSON (Terraform)",
-				"scope": "source.json.terraform"
+				"name": "Plain Text (HCL)",
+				"scope": "source.hcl"
 			},
 			{
 				"extensions": [
-					"tf",
-					"tfvars",
-					"hcl"
+					"tf"
 				],
 				"name": "Plain Text (Terraform)",
 				"scope": "source.terraform"
+			},
+			{
+				"extensions": [
+					"tfvars"
+				],
+				"name": "Plain Text (Terraform Vars)",
+				"scope": "source.terraform-vars"
 			}
 		]
 	},
