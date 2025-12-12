@@ -5,11 +5,14 @@ from . import icons
 from . import themes
 
 from .overlay import with_ignored_overlay
+from .utils.decorators import debounce
 from .utils.logging import log
 from .utils.path import PACKAGE_NAME
 
 PACKAGE_SETTINGS = "A File Icon.sublime-settings"
+USER_SETTINGS = "Preferences.sublime-settings"
 
+_cached_packages = []
 _cached_settings = {}
 _uuid = "9ebcce78-4cac-4089-8bd7-d551c634b052"
 
@@ -17,22 +20,28 @@ _uuid = "9ebcce78-4cac-4089-8bd7-d551c634b052"
 def add_listener():
     log("Initializing settings")
     path = "Packages/{0}/{1}".format(PACKAGE_NAME, PACKAGE_SETTINGS)
-    settings = sublime.load_settings(PACKAGE_SETTINGS)
+    package_settings = sublime.load_settings(PACKAGE_SETTINGS)
     for key in sublime.decode_value(sublime.load_resource(path)).keys():
         if key not in ("dev_mode", "dev_trace"):
-            _cached_settings[key] = settings.get(key)
+            _cached_settings[key] = package_settings.get(key)
+
+    user_settings = sublime.load_settings(USER_SETTINGS)
+    _cached_packages = user_settings.get("ignored_packages")
 
     icons.init()
     themes.patch(_cached_settings)
     aliases.check(_cached_settings["aliases"])
-    sublime.load_settings(PACKAGE_SETTINGS).add_on_change(_uuid, _on_change)
+
+    package_settings.add_on_change(_uuid, _on_change_package)
+    user_settings.add_on_change(_uuid, _on_change_user)
 
 
 def clear_listener():
     sublime.load_settings(PACKAGE_SETTINGS).clear_on_change(_uuid)
+    sublime.load_settings(USER_SETTINGS).clear_on_change(_uuid)
 
 
-def _on_change():
+def _on_change_package():
     is_aliases_changed = False
     is_icons_changed = False
     is_force_mode_changed = False
@@ -55,12 +64,18 @@ def _on_change():
         aliases.check(_cached_settings["aliases"])
     if is_icons_changed:
         log("Icons settings changed")
-        _patch_theme(True)
+        themes.patch(_cached_settings, overwrite=True)
     elif is_force_mode_changed:
         log("Force mode settings changed")
-        _patch_theme(False)
+        themes.patch(_cached_settings)
 
 
-@with_ignored_overlay
-def _patch_theme(overwrite):
-    themes.patch(_cached_settings, overwrite)
+@debounce(2000)
+def _on_change_user():
+    global _cached_packages
+    settings = sublime.load_settings(USER_SETTINGS)
+    packages = settings.get("ignored_packages")
+    if packages != _cached_packages:
+        _cached_packages = packages
+        themes.patch(_cached_settings, on_demand=True)
+        aliases.check(_cached_settings["aliases"], on_demand=True)
