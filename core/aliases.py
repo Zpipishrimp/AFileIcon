@@ -145,7 +145,7 @@ def create_alias_file(alias):
             else:
                 out.write(EMPTY_TEMPLATE.format(name, scope, exts, base))
     except FileExistsError:
-        pass
+        dump("■ {}.sublime-syntax".format(name))
     except Exception as error:
         dump("+ {}.sublime-syntax | {}".format(name, error))
     else:
@@ -156,6 +156,7 @@ def delete_alias_file(alias, real_syntax):
     alias_name = alias["name"] + ".sublime-syntax"
     alias_path = path.overlay_aliases_path(alias_name)
     if not os.path.exists(alias_path):
+        dump("□ " + alias_name)
         return
 
     # reassign real syntax to any open view, which uses the alias
