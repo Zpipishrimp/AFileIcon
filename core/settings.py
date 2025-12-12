@@ -7,7 +7,7 @@ from . import themes
 from .overlay import with_ignored_overlay
 from .utils.decorators import debounce
 from .utils.logging import log
-from .utils.path import PACKAGE_NAME
+from .utils.path import PACKAGE_NAME, OVERLAY_ROOT
 
 PACKAGE_SETTINGS = "A File Icon.sublime-settings"
 USER_SETTINGS = "Preferences.sublime-settings"
@@ -74,7 +74,9 @@ def _on_change_package():
 def _on_change_user():
     global _cached_packages
     settings = sublime.load_settings(USER_SETTINGS)
-    packages = settings.get("ignored_packages")
+    packages = settings.get("ignored_packages", [])
+    if OVERLAY_ROOT in packages:
+        packages.remove(OVERLAY_ROOT)
     if packages != _cached_packages:
         _cached_packages = packages
         themes.patch(_cached_settings, on_demand=True)
