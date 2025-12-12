@@ -71,17 +71,17 @@ def check(desired_state):
 def disable():
     log("Disabling aliases")
 
+    real_syntaxes = get_real_syntaxes()
+
     def delete_alias_files(syntaxes):
-        base_syntaxes = None
         for syntax in syntaxes:
-            if HAS_FIND_SYNTAX:
-                base_syntaxes = sublime.find_syntax_by_scope(
-                    syntax.get("base", "text.plain")
-                )
-            if base_syntaxes:
-                delete_alias_file(syntax, base_syntaxes[0].path)
-            else:
-                delete_alias_file(syntax, "Plain text.tmLanguage")
+            delete_alias_file(
+                syntax,
+                real_syntaxes.get(
+                    syntax.get("base", "text.plain"),
+                    "Packages/Text/Plain text.tmLanguage",
+                ),
+            )
 
     for file_type in icons_json_content().values():
         delete_alias_files(file_type.get("aliases", []))
@@ -92,16 +92,7 @@ def disable():
 
 
 def enable():
-    if HAS_FIND_SYNTAX:
-        # Built a dict of { scope: syntax } from visible/real syntaxes.
-        # Note: Existing aliases in the overlay are hidden and thus excluded
-        #       by default. Also ignore possible aliases or special purpose
-        #       syntaxes from 3rd-party packages.
-        real_syntaxes = {
-            s.scope: s.path for s in sublime.list_syntaxes() if not s.hidden
-        }
-    else:
-        real_syntaxes = {}
+    real_syntaxes = get_real_syntaxes()
 
     def real_syntax_for(selector):
         for scope in selector.split(","):
@@ -174,3 +165,15 @@ def delete_alias_file(alias, real_syntax):
         dump("- {} | {}".format(alias_name, error))
     else:
         dump("- {}".format(alias_name))
+
+
+def get_real_syntaxes():
+    # Built a dict of { scope: syntax } from visible/real syntaxes.
+    # Note: Existing aliases in the overlay are hidden and thus excluded
+    #       by default. Also ignore possible aliases or special purpose
+    #       syntaxes from 3rd-party packages.
+    return (
+        {s.scope: s.path for s in sublime.list_syntaxes() if not s.hidden}
+        if HAS_FIND_SYNTAX
+        else {}
+    )
