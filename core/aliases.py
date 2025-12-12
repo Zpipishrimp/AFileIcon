@@ -61,9 +61,9 @@ else:
     ).lstrip()
 
 
-def check(desired_state):
+def check(desired_state, on_demand=False):
     if desired_state:
-        enable()
+        enable(on_demand)
     else:
         disable()
 
@@ -87,12 +87,22 @@ def disable():
         delete_alias_files(file_type.get("aliases", []))
         delete_alias_files(file_type.get("syntaxes", []))
 
-    shutil.rmtree(path.overlay_aliases_path(), ignore_errors=True)
-    shutil.rmtree(path.overlay_cache_path(), ignore_errors=True)
+    def remove():
+        shutil.rmtree(path.overlay_aliases_path(), ignore_errors=True)
+        shutil.rmtree(path.overlay_cache_path(), ignore_errors=True)
+
+    sublime.set_timeout_async(remove)
 
 
-def enable():
+def enable(on_demand=False):
     real_syntaxes = get_real_syntaxes()
+    syntax_names = real_syntaxes.keys()
+    try:
+        if on_demand and enable.syntax_names == syntax_names:
+            return
+    except Exception:
+        pass
+    enable.syntax_names = syntax_names
 
     def real_syntax_for(selector):
         for scope in selector.split(","):
@@ -158,13 +168,16 @@ def delete_alias_file(alias, real_syntax):
             if syntax and syntax == alias_resource:
                 view.assign_syntax(real_syntax)
 
-    # actually delete the alias syntax
-    try:
-        os.remove(alias_path)
-    except Exception as error:
-        dump("- {} | {}".format(alias_name, error))
-    else:
-        dump("- {}".format(alias_name))
+    # delete the alias syntax asynchronously, after ST applied real syntax
+    def remove():
+        try:
+            os.remove(alias_path)
+        except Exception as error:
+            dump("- {} | {}".format(alias_name, error))
+        else:
+            dump("- {}".format(alias_name))
+
+    sublime.set_timeout_async(remove)
 
 
 def get_real_syntaxes():

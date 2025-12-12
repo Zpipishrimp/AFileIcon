@@ -4,6 +4,8 @@ import shutil
 
 import sublime
 
+from itertools import chain
+
 from .utils import path
 from .utils.colors import convert_color_value
 from .utils.logging import log, dump
@@ -11,8 +13,16 @@ from .utils.logging import log, dump
 from . import icons
 
 
-def patch(settings, overwrite=False):
+def patch(settings, overwrite=False, on_demand=False):
     theme_packages = _installed_themes()
+    themes = set((theme for theme in chain(*theme_packages.values())))
+    try:
+        if on_demand and patch.themes == themes:
+            return
+    except Exception:
+        pass
+    patch.themes = themes
+
     supported = [] if settings.get("force_mode") else _customizable_themes()
 
     general_patch = _create_general_patch(settings)
