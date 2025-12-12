@@ -850,7 +850,7 @@
 					".Dockerfile"
 				],
 				"name": "Plain Text (Dockerfile)",
-				"scope": "source.dockerfile"
+				"scope": "source.containerfile, source.dockerfile"
 			}
 		]
 	},
