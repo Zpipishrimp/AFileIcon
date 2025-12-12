@@ -166,7 +166,7 @@ def delete_alias_file(alias, real_syntax):
         for view in window.views():
             syntax = view.settings().get("syntax")
             if syntax and syntax == alias_resource:
-                view.assign_syntax(real_syntax)
+                view.settings().set("syntax", real_syntax)
 
     # delete the alias syntax asynchronously, after ST applied real syntax
     def remove():
