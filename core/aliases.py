@@ -89,7 +89,6 @@ def disable():
 
     def remove():
         shutil.rmtree(path.overlay_aliases_path(), ignore_errors=True)
-        shutil.rmtree(path.overlay_cache_path(), ignore_errors=True)
 
     sublime.set_timeout_async(remove)
 
@@ -166,7 +165,7 @@ def delete_alias_file(alias, real_syntax):
         for view in window.views():
             syntax = view.settings().get("syntax")
             if syntax and syntax == alias_resource:
-                view.assign_syntax(real_syntax)
+                view.settings().set("syntax", real_syntax)
 
     # delete the alias syntax asynchronously, after ST applied real syntax
     def remove():
