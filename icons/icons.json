@@ -514,12 +514,25 @@
 		"syntaxes": [
 			{
 				"extensions": [
-					"cfc",
+					"cfc"
+				],
+				"name": "Plain Text (CFC)",
+				"scope": "embedding.cfml, source.cfscript.cfc"
+			},
+			{
+				"extensions": [
 					"cfm",
 					"cfml"
 				],
-				"name": "Plain Text (ColdFusion)",
-				"scope": "source.cfscript.cfc, text.html.cfm, source.cfml.script, embedding.cfml"
+				"name": "Plain Text (CFM)",
+				"scope": "embedding.cfml, text.html.cfml, text.html.cfm"
+			},
+			{
+				"extensions": [
+					"cfs"
+				],
+				"name": "Plain Text (CFS)",
+				"scope": "source.cfml.script"
 			}
 		]
 	},

@@ -2,7 +2,7 @@
 <plist version="1.0">
 	<dict>
 		<key>scope</key>
-		<string>embedding.cfml, source.cfml.script, source.cfscript.cfc, text.html.cfm</string>
+		<string>embedding.cfml, source.cfml.script, source.cfscript.cfc, text.html.cfm, text.html.cfml</string>
 		<key>settings</key>
 		<dict>
 			<key>icon</key>
