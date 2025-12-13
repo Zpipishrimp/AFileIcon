@@ -44,7 +44,7 @@ if int(sublime.version()) >= 3114:
             overlay.enable_overlay()
 
         # run delayed to prevent race condition with previous plugin_unloaded
-        sublime.set_timeout_async(setup_overlay, overlay.IGNORE_DELAY)
+        sublime.set_timeout_async(setup_overlay, 1000)
 
     def plugin_unloaded():
         settings.clear_listener()
