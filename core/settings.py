@@ -41,6 +41,7 @@ def clear_listener():
     sublime.load_settings(USER_SETTINGS).clear_on_change(_uuid)
 
 
+@debounce(100)
 def _on_change_package():
     is_aliases_changed = False
     is_icons_changed = False
