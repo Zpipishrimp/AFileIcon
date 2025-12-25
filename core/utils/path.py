@@ -22,24 +22,28 @@ def package_icons_path():
 
 
 def overlay_path():
+    return os.path.join(sublime.packages_path(), OVERLAY_ROOT)
+
+
+def overlay_cache_path():
     return os.path.join(sublime.cache_path(), OVERLAY_ROOT)
 
 
 def overlay_aliases_path(file_name=""):
-    return os.path.join(sublime.cache_path(), OVERLAY_ROOT, "aliases", file_name)
+    return os.path.join(sublime.packages_path(), OVERLAY_ROOT, "aliases", file_name)
 
 
 def overlay_patches_path():
-    return os.path.join(sublime.cache_path(), OVERLAY_ROOT, "patches")
+    return os.path.join(sublime.packages_path(), OVERLAY_ROOT, "patches")
 
 
 def overlay_patches_general_path():
-    return os.path.join(sublime.cache_path(), OVERLAY_ROOT, "patches", "general")
+    return os.path.join(sublime.packages_path(), OVERLAY_ROOT, "patches", "general")
 
 
 def overlay_patches_specific_path():
-    return os.path.join(sublime.cache_path(), OVERLAY_ROOT, "patches", "specific")
+    return os.path.join(sublime.packages_path(), OVERLAY_ROOT, "patches", "specific")
 
 
 def overlay_aliases_resource_path(file_name=""):
-    return "Cache/{}/aliases/{}".format(OVERLAY_ROOT, file_name)
+    return "Packages/{}/aliases/{}".format(OVERLAY_ROOT, file_name)

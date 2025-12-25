@@ -381,6 +381,10 @@ This file contains a list of possible packages you may need to install to see th
 
 - [Eutherium](https://packagecontrol.io/packages/Ethereum)
 
+## SSH Config
+
+- [SSH Config](https://packagecontrol.io/packages/SSH%20Config)
+
 ## Stata
 
 - [Stata Enhanced](https://packagecontrol.io/packages/Stata%20Enhanced)

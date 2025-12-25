@@ -71,7 +71,6 @@ def _on_change_package():
         themes.patch(_cached_settings)
 
 
-@debounce(2000)
 def _on_change_user():
     global _cached_packages
     settings = sublime.load_settings(USER_SETTINGS)
@@ -80,5 +79,10 @@ def _on_change_user():
         packages.remove(OVERLAY_ROOT)
     if packages != _cached_packages:
         _cached_packages = packages
-        themes.patch(_cached_settings, on_demand=True)
-        aliases.check(_cached_settings["aliases"], on_demand=True)
+
+        @debounce(2000)
+        def update_overlay():
+            themes.patch(_cached_settings, on_demand=True)
+            aliases.check(_cached_settings["aliases"], on_demand=True)
+
+        update_overlay()

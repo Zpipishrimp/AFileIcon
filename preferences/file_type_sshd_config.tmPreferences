@@ -2,11 +2,11 @@
 <plist version="1.0">
 	<dict>
 		<key>scope</key>
-		<string>embedding.cfml, source.cfml.script, source.cfscript.cfc, text.html.cfm, text.html.cfml</string>
+		<string>source.sshd_config</string>
 		<key>settings</key>
 		<dict>
 			<key>icon</key>
-			<string>file_type_cf</string>
+			<string>file_type_sshd_config</string>
 		</dict>
 	</dict>
 </plist>
