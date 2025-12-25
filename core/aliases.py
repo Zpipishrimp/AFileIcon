@@ -89,6 +89,7 @@ def disable():
 
     def remove():
         shutil.rmtree(path.overlay_aliases_path(), ignore_errors=True)
+        shutil.rmtree(path.overlay_cache_path(), ignore_errors=True)
 
     sublime.set_timeout_async(remove)
 
