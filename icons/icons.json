@@ -292,6 +292,19 @@
 		],
 		"color": "red"
 	},
+	"file_type_authorized_keys": {
+		"color": "purple",
+		"syntaxes": [
+			{
+				"extensions": [
+					"authorized_keys",
+					"authorized_keys2"
+				],
+				"name": "Plain Text (Authorized Keys)",
+				"scope": "source.authorized_keys"
+			}
+		]
+	},
 	"file_type_awk": {
 		"color": "red",
 		"syntaxes": [
@@ -1697,6 +1710,19 @@
 			}
 		]
 	},
+	"file_type_known_hosts": {
+		"color": "graphite",
+		"syntaxes": [
+			{
+				"extensions": [
+					"known_hosts",
+					"known_hosts.old"
+				],
+				"name": "Plain Text (Known Hosts)",
+				"scope": "source.known_hosts"
+			}
+		]
+	},
 	"file_type_kotlin": {
 		"color": "blue",
 		"syntaxes": [
@@ -2343,6 +2369,27 @@
 		],
 		"color": "red"
 	},
+	"file_type_pem": {
+		"color": "blue",
+		"syntaxes": [
+			{
+				"extensions": [
+					"pem",
+					"asc",
+					"cer",
+					"cert",
+					"crt",
+					"id_dsa",
+					"id_ed25519",
+					"id_ed448",
+					"id_eddsa",
+					"id_rsa"
+				],
+				"name": "Plain Text (PEM Key)",
+				"scope": "source.pem"
+			}
+		]
+	},
 	"file_type_perl": {
 		"color": "graphite",
 		"syntaxes": [
@@ -2599,6 +2646,18 @@
 			}
 		],
 		"color": "sky"
+	},
+	"file_type_public_key": {
+		"color": "blue",
+		"syntaxes": [
+			{
+				"extensions": [
+					"pub"
+				],
+				"name": "Plain Text (Public Key)",
+				"scope": "source.pubkey"
+			}
+		]
 	},
 	"file_type_pug": {
 		"aliases": [
@@ -3001,6 +3060,30 @@
 				],
 				"name": "Plain Text (Dot ENV)",
 				"scope": "source.env"
+			}
+		]
+	},
+	"file_type_ssh_config": {
+		"color": "graphite",
+		"syntaxes": [
+			{
+				"extensions": [
+					"ssh_config"
+				],
+				"name": "Plain Text (SSH Config)",
+				"scope": "source.ssh_config"
+			}
+		]
+	},
+	"file_type_sshd_config": {
+		"color": "graphite",
+		"syntaxes": [
+			{
+				"extensions": [
+					"sshd_config"
+				],
+				"name": "Plain Text (SSHD Config)",
+				"scope": "source.sshd_config"
 			}
 		]
 	},
