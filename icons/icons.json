@@ -3022,6 +3022,20 @@
 	"file_type_settings": {
 		"aliases": [
 			{
+				"extensions": [
+					"Doxyfile",
+					"DoxyfileTemplate",
+					"Doxyfile.version",
+					"Doxyfile.aliases",
+					"Doxyfile.rfc",
+					"Doxyfile.base",
+					"Doxyfile.inc",
+					"Doxyfile.include"
+				],
+				"name": "INI (Doxyfile)",
+				"scope": "source.ini.doxyfile"
+			},
+			{
 				"base": "source.json",
 				"extensions": [
 					".htmlhintrc",
@@ -3057,15 +3071,6 @@
 					"url",
 					"conf",
 					"config",
-					"Doxyfile",
-					"DoxyfileTemplate",
-					"DoxyfileTemplate.cfg",
-					"Doxyfile.version",
-					"Doxyfile.aliases",
-					"Doxyfile.rfc",
-					"Doxyfile.base",
-					"Doxyfile.inc",
-					"Doxyfile.include",
 					"buildozer.spec"
 				],
 				"name": "Plain Text (INI)",
