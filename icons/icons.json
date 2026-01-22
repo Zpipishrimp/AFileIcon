@@ -3062,16 +3062,27 @@
 		"syntaxes": [
 			{
 				"extensions": [
-					"fmt",
+					".buckconfig",
+					".coveragerc",
+					".flake8",
+					".flowconfig",
+					".hgrc",
+					".pycodestyle",
+					".pylintrc",
+					".style.yapf",
+					"avpreset",
 					"cfg",
-					"ini",
-					"inf",
-					"lng",
-					"pbk",
-					"url",
 					"conf",
-					"config",
-					"buildozer.spec"
+					"desktop",
+					"ffpreset",
+					"inf",
+					"ini",
+					"lektorproject",
+					"lng",
+					"pycodestyle",
+					"pylintrc",
+					"url",
+					"vlcrc"
 				],
 				"name": "Plain Text (INI)",
 				"scope": "source.ini"
