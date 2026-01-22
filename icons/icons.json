@@ -1858,13 +1858,13 @@
 	"file_type_lock": {
 		"aliases": [
 			{
-				"base": "source.yaml",
+				"base": "text.plain",
 				"extensions": [
 					"Gemfile.lock",
 					"Berksfile.lock"
 				],
-				"name": "YAML (Lock)",
-				"scope": "source.yaml.lock"
+				"name": "Text Plain (Lock)",
+				"scope": "text.plain.lock"
 			}
 		],
 		"color": "red"
