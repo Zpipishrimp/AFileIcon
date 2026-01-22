@@ -1816,6 +1816,18 @@
 			}
 		]
 	},
+	"file_type_livescript": {
+		"color": "sky",
+		"syntaxes": [
+			{
+				"extensions": [
+					"ls"
+				],
+				"name": "Plain Text (LiveScript)",
+				"scope": "source.livescript, source.LiveScript"
+			}
+		]
+	},
 	"file_type_lisp": {
 		"color": "red",
 		"syntaxes": [
@@ -1846,13 +1858,38 @@
 	"file_type_lock": {
 		"aliases": [
 			{
+				"base": "source.json",
+				"extensions": [
+					"package-lock.json"
+				],
+				"name": "JSON (Lock)",
+				"scope": "source.json.lock"
+			},
+			{
+				"base": "source.toml",
+				"extensions": [
+					"Cargo.lock",
+					"Gopkg.lock",
+					"uv.lock"
+				],
+				"name": "TOML (Lock)",
+				"scope": "source.toml.lock"
+			},
+			{
 				"base": "source.yaml",
+				"extensions": [
+					"yarn.lock"
+				],
+				"name": "YAML (Lock)",
+				"scope": "source.yaml.lock"
+			},
+			{
 				"extensions": [
 					"Gemfile.lock",
 					"Berksfile.lock"
 				],
-				"name": "YAML (Lock)",
-				"scope": "source.yaml.lock"
+				"name": "Text Plain (Lock)",
+				"scope": "text.plain.lock"
 			}
 		],
 		"color": "red"
@@ -2180,7 +2217,6 @@
 			{
 				"base": "source.json",
 				"extensions": [
-					"package-lock.json",
 					"package.json"
 				],
 				"name": "JSON (NPM)",
@@ -2986,6 +3022,20 @@
 	"file_type_settings": {
 		"aliases": [
 			{
+				"extensions": [
+					"Doxyfile",
+					"DoxyfileTemplate",
+					"Doxyfile.version",
+					"Doxyfile.aliases",
+					"Doxyfile.rfc",
+					"Doxyfile.base",
+					"Doxyfile.inc",
+					"Doxyfile.include"
+				],
+				"name": "INI (Doxyfile)",
+				"scope": "source.ini.doxyfile"
+			},
+			{
 				"base": "source.json",
 				"extensions": [
 					".htmlhintrc",
@@ -3012,25 +3062,27 @@
 		"syntaxes": [
 			{
 				"extensions": [
-					"fmt",
+					".buckconfig",
+					".coveragerc",
+					".flake8",
+					".flowconfig",
+					".hgrc",
+					".pycodestyle",
+					".pylintrc",
+					".style.yapf",
+					"avpreset",
 					"cfg",
-					"ini",
-					"inf",
-					"lng",
-					"pbk",
-					"url",
 					"conf",
-					"config",
-					"Doxyfile",
-					"DoxyfileTemplate",
-					"DoxyfileTemplate.cfg",
-					"Doxyfile.version",
-					"Doxyfile.aliases",
-					"Doxyfile.rfc",
-					"Doxyfile.base",
-					"Doxyfile.inc",
-					"Doxyfile.include",
-					"buildozer.spec"
+					"desktop",
+					"ffpreset",
+					"inf",
+					"ini",
+					"lektorproject",
+					"lng",
+					"pycodestyle",
+					"pylintrc",
+					"url",
+					"vlcrc"
 				],
 				"name": "Plain Text (INI)",
 				"scope": "source.ini"
@@ -3566,8 +3618,6 @@
 				"extensions": [
 					"toml",
 					"tml",
-					"Cargo.lock",
-					"Gopkg.lock",
 					"Pipfile"
 				],
 				"name": "Plain Text (TOML)",
@@ -4076,8 +4126,7 @@
 				"base": "source.yaml",
 				"extensions": [
 					".yarnrc.yaml",
-					".yarnrc.yml",
-					"yarn.lock"
+					".yarnrc.yml"
 				],
 				"name": "YAML (Yarn)",
 				"scope": "source.yaml.yarn"
