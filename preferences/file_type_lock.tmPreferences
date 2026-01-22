@@ -2,7 +2,7 @@
 <plist version="1.0">
 	<dict>
 		<key>scope</key>
-		<string>text.plain.lock</string>
+		<string>source.json.lock, source.toml.lock, source.yaml.lock, text.plain.lock</string>
 		<key>settings</key>
 		<dict>
 			<key>icon</key>

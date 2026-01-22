@@ -1858,7 +1858,32 @@
 	"file_type_lock": {
 		"aliases": [
 			{
-				"base": "text.plain",
+				"base": "source.json",
+				"extensions": [
+					"package-lock.json"
+				],
+				"name": "JSON (Lock)",
+				"scope": "source.json.lock"
+			},
+			{
+				"base": "source.toml",
+				"extensions": [
+					"Cargo.lock",
+					"Gopkg.lock",
+					"uv.lock"
+				],
+				"name": "TOML (Lock)",
+				"scope": "source.toml.lock"
+			},
+			{
+				"base": "source.yaml",
+				"extensions": [
+					"yarn.lock"
+				],
+				"name": "YAML (Lock)",
+				"scope": "source.yaml.lock"
+			},
+			{
 				"extensions": [
 					"Gemfile.lock",
 					"Berksfile.lock"
@@ -2192,7 +2217,6 @@
 			{
 				"base": "source.json",
 				"extensions": [
-					"package-lock.json",
 					"package.json"
 				],
 				"name": "JSON (NPM)",
@@ -3578,8 +3602,6 @@
 				"extensions": [
 					"toml",
 					"tml",
-					"Cargo.lock",
-					"Gopkg.lock",
 					"Pipfile"
 				],
 				"name": "Plain Text (TOML)",
@@ -4088,8 +4110,7 @@
 				"base": "source.yaml",
 				"extensions": [
 					".yarnrc.yaml",
-					".yarnrc.yml",
-					"yarn.lock"
+					".yarnrc.yml"
 				],
 				"name": "YAML (Yarn)",
 				"scope": "source.yaml.yarn"
