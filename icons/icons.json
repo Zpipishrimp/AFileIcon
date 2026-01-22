@@ -3038,9 +3038,12 @@
 			{
 				"base": "source.json",
 				"extensions": [
+					".csslintrc",
 					".htmlhintrc",
-					".jshintrc",
 					".jsbeautifyrc",
+					".jscsrc",
+					".jshintrc",
+					".markdownlintrc",
 					".prettierrc",
 					".releaserc"
 				],
