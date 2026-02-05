@@ -1847,10 +1847,12 @@
 			{
 				"base": "source.yaml",
 				"extensions": [
-					".clang-format"
+					".clang-format",
+					".clang-tidy",
+					".clangd"
 				],
-				"name": "YAML (clang-format)",
-				"scope": "source.yaml.clang-format"
+				"name": "YAML (LLVM)",
+				"scope": "source.yaml.llvm"
 			}
 		],
 		"color": "blue"
@@ -3038,9 +3040,12 @@
 			{
 				"base": "source.json",
 				"extensions": [
+					".csslintrc",
 					".htmlhintrc",
-					".jshintrc",
 					".jsbeautifyrc",
+					".jscsrc",
+					".jshintrc",
+					".markdownlintrc",
 					".prettierrc",
 					".releaserc"
 				],

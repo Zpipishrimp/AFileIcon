@@ -1,4 +1,6 @@
-# [![A File Icon][img-logo]][downloads]
+# A File Icon
+
+![preview][img-logo]
 
 [![Star on GitHub][img-stars]][stars]
 [![Join the chat at Sublime Forum][img-forum]][forum]
