@@ -1903,6 +1903,9 @@
 		"aliases": [
 			{
 				"extensions": [
+					"COPYING",
+					"COPYRIGHT",
+					"LICENSE",
 					"copying",
 					"copyright",
 					"license",
@@ -3945,8 +3948,10 @@
 		"syntaxes": [
 			{
 				"extensions": [
-					"todo",
+					"TASKS",
 					"tasks",
+					"TODO",
+					"todo",
 					"todolist.txt"
 				],
 				"name": "Plain Text (PlainTasks)",
