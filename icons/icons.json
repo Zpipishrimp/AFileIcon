@@ -3796,6 +3796,14 @@
 			},
 			{
 				"extensions": [
+					"tfstate"
+				],
+				"name": "Plain Text (Terraform State)",
+				"scope": "source.json"
+			},
+			{
+				"extensions": [
+					"nomad",
 					"tf"
 				],
 				"name": "Plain Text (Terraform)",
