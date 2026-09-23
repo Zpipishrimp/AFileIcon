@@ -3439,6 +3439,10 @@
 		"color": "green",
 		"syntaxes": [
 			{
+				"name": "Shell",
+				"scope": "source.shell"
+			},
+			{
 				"extensions": [
 					".bash_aliases",
 					".bash_completions",
@@ -3451,11 +3455,6 @@
 					".bashrc",
 					".profile",
 					".textmate_init",
-					".zlogin",
-					".zlogout",
-					".zprofile",
-					".zshenv",
-					".zshrc",
 					"APKBUILD",
 					"ash",
 					"bash",
@@ -3463,11 +3462,10 @@
 					"ebuild",
 					"eclass",
 					"PKGBUILD",
-					"sh",
-					"zsh"
+					"sh"
 				],
-				"name": "Shell Script (Bash)",
-				"scope": "source.shell"
+				"name": "Plain Text (Bash)",
+				"scope": "source.shell.bash"
 			},
 			{
 				"extensions": [
@@ -3475,6 +3473,18 @@
 				],
 				"name": "Plain Text (Fish)",
 				"scope": "source.shell.fish"
+			},
+			{
+				"extensions": [
+					".zlogin",
+					".zlogout",
+					".zprofile",
+					".zshenv",
+					".zshrc",
+					"zsh"
+				],
+				"name": "Plain Text (Zsh)",
+				"scope": "source.shell.zsh"
 			}
 		]
 	},
