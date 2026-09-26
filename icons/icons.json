@@ -1239,16 +1239,16 @@
 		"aliases": [
 			{
 				"extensions": [
-					"git-blame",
-					".gitblame"
+					".gitblame",
+					"git-blame"
 				],
 				"name": "Git Blame",
 				"scope": "text.git.blame"
 			},
 			{
 				"extensions": [
-					"description",
-					".gitdescription"
+					".gitdescription",
+					"description"
 				],
 				"name": "Git Description",
 				"scope": "text.git.description"
@@ -1265,31 +1265,85 @@
 		"syntaxes": [
 			{
 				"extensions": [
-					".git",
-					".git-blame-ignore-revs",
 					".gitattributes",
-					".gitconfig",
-					".gitignore",
-					".gitmodules",
-					".mailmap",
-					"CODEOWNERS",
+					"gitattributes"
+				],
+				"name": "Git Attributes",
+				"scope": "text.git.attributes"
+			},
+			{
+				"extensions": [
+					".git-blame-ignore-revs",
+					"git-blame-ignore-revs"
+				],
+				"name": "Git Blame",
+				"scope": "text.git.blame.ignorerevs"
+			},
+			{
+				"extensions": [
+					"CODEOWNERS"
+				],
+				"name": "Git Code Owners",
+				"scope": "text.git.codeowners"
+			},
+			{
+				"extensions": [
 					"COMMIT_EDITMSG",
-					"diff.eml",
-					"diff.mbox",
-					"git-blame-ignore-revs",
-					"git-rebase-todo",
-					"gitattributes",
-					"gitconfig",
-					"gitignore",
-					"mailmap",
 					"MERGE_MSG",
-					"patch.eml",
-					"patch.mbox",
-					"sparse-checkout",
 					"TAG_EDITMSG"
 				],
-				"name": "Git Formats",
-				"scope": "text.git"
+				"name": "Git Commit",
+				"scope": "text.git.commit"
+			},
+			{
+				"extensions": [
+					".gitconfig",
+					".gitmodules",
+					"gitconfig"
+				],
+				"name": "Git Config",
+				"scope": "text.git.config"
+			},
+			{
+				"extensions": [
+					"diff.eml",
+					"diff.mbox",
+					"patch.eml",
+					"patch.mbox"
+				],
+				"name": "Git Diff",
+				"scope": "source.diff.git"
+			},
+			{
+				"extensions": [
+					".gitignore",
+					"gitignore",
+					"sparse-checkout"
+				],
+				"name": "Git Ignore",
+				"scope": "text.git.ignore"
+			},
+			{
+				"extensions": [
+					".git"
+				],
+				"name": "Git Link",
+				"scope": "text.git.link"
+			},
+			{
+				"extensions": [
+					".mailmap",
+					"mailmap"
+				],
+				"name": "Git Mailmap",
+				"scope": "text.git.mailmap"
+			},
+			{
+				"extensions": [
+					"git-rebase-todo"
+				],
+				"name": "Git Rebase Todo",
+				"scope": "text.git.rebase"
 			},
 			{
 				"name": "Git Misc Packages",
